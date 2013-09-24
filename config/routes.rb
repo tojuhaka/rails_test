@@ -1,4 +1,6 @@
 RailsTest::Application.routes.draw do
+  resources :posts
+
   get "home/index"
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -14,6 +16,7 @@ RailsTest::Application.routes.draw do
   namespace :api do
     namespace :v1  do
       resources :tokens,:only => [:create, :destroy]
+      resources :posts, :only => [:index]
     end
   end
 
